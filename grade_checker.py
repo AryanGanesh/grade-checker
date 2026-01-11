@@ -65,27 +65,36 @@ class ThaparGradeMonitor:
         
     def login(self):
         """Login to Thapar portal"""
-        logging.info(f"Navigating to {INSTITUTE_URL}")
-        self.driver.get(INSTITUTE_URL)
-            
-            # Wait for and fill login form
-        username_field = self.wait.until(
-            EC.presence_of_element_located((By.NAME, "MemberCode"))
-            )
-        username_field.clear()
-        username_field.send_keys(INSTITUTE_USERNAME)
-            
-        password_field = self.wait.until(
-                EC.presence_of_element_located((By.NAME, "Password"))
-            )
-        password_field.clear()
-        password_field.send_keys(INSTITUTE_PASSWORD)
-            
-        login_button = self.wait.until(
-                EC.element_to_be_clickable((By.ID, "BTNSubmit"))
-            )
-        login_button.click()
-       
+        try:
+            logging.info(f"Navigating to {INSTITUTE_URL}")
+            self.driver.get(INSTITUTE_URL)
+                
+                # Wait for and fill login form
+            username_field = self.wait.until(
+                EC.presence_of_element_located((By.NAME, "MemberCode"))
+                )
+            username_field.clear()
+            username_field.send_keys(INSTITUTE_USERNAME)
+                
+            password_field = self.wait.until(
+                    EC.presence_of_element_located((By.NAME, "Password"))
+                )
+            password_field.clear()
+            password_field.send_keys(INSTITUTE_PASSWORD)
+
+            logging.info(f"About to click submit button...")
+                
+            login_button = self.wait.until(
+                    EC.element_to_be_clickable((By.ID, "BTNSubmit"))
+                )
+            login_button.click()   
+            # Verify login was successful (check for a logout link or profile name)
+            self.wait.until(EC.url_contains("StudentPage.jsp"))
+            logging.info("Login successful")
+            return True
+        except Exception as e:
+            logging.error(f"Login failed: {e}")
+            return False
             
     
     def navigate_to_grades(self):
@@ -96,15 +105,19 @@ class ThaparGradeMonitor:
             # Switch to leftFrame (menu)
             self.driver.switch_to.default_content()
             self.wait.until(
-                EC.frame_to_be_available_and_switch_to_it((By.NAME, "leftFrame"))
+                EC.frame_to_be_available_and_switch_to_it((By.XPATH, "//frame[@src='FrameLeftStudent.jsp']"))
             )
+            logging.info("switch to leftFrame successful")
             
             # Expand Exam. Info. menu
-            exam_menu = self.wait.until(
-                EC.presence_of_element_located(
-                    (By.CSS_SELECTOR, "div.menutitle[onclick*='sub5']")
-                )
+            menu_list = self.wait.until(
+                EC.presence_of_all_elements_located((By.CLASS_NAME, "menutitle"))
             )
+            logging.info(f"Found {len(menu_list)} elements.")
+
+            exam_menu = menu_list[4]  # 5th element is Exam. Info
+            logging.info("got exam_menu {exam_menu}")
+
             self.driver.execute_script("arguments[0].scrollIntoView(true);", exam_menu)
             
             # Use JavaScript to expand menu
@@ -149,31 +162,33 @@ class ThaparGradeMonitor:
             
             # Select semester using Select class
             semester_select = Select(exam_dropdown)
-            semester_select.select_by_value("2526EVESEM")
-            logging.info("Selected semester: 2526EVESEM")
+            semester_select.select_by_value("2526ODDSEM")
+            logging.info("Selected semester: 2526ODDSEM")
             
             # Check if subject dropdown exists
-            try:
-                subject_dropdown = self.wait.until(
-                    EC.presence_of_element_located((By.ID, "subject")),
-                    timeout=5
-                )
-                subject_select = Select(subject_dropdown)
-                subject_select.select_by_value("ALL")
-                logging.info("Selected subject: ALL")
-            except TimeoutException:
-                logging.info("Subject dropdown not found, continuing...")
+            # try:
+            #     subject_dropdown = self.wait.until(
+            #         EC.presence_of_element_located((By.ID, "subject")),
+            #         timeout=5
+            #     )
+            #     subject_select = Select(subject_dropdown)
+            #     subject_select.select_by_value("ALL")
+            #     logging.info("Selected subject: ALL")
+            # except TimeoutException:
+            #     logging.info("Subject dropdown not found, continuing...")
             
             # Click Show button
             show_button = self.wait.until(
                 EC.element_to_be_clickable((By.XPATH, "//input[@value='Show']"))
             )
+            logging.info("Show button found, submitting form...")
             show_button.click()
             
+            time.sleep(2)
             # Wait for page to process
-            self.wait.until(
-                EC.staleness_of(show_button)
-            )
+            # self.wait.until(
+            #     EC.staleness_of(show_button)
+            # )
             
             logging.info("Form submitted successfully")
             return True
@@ -208,46 +223,41 @@ class ThaparGradeMonitor:
                 return False, "Grades not yet released"
             
             # Look for red alert or error messages
-            try:
-                alert_element = self.driver.find_element(
-                    By.CSS_SELECTOR, 
-                    "div[style*='color:red'], .alert-danger, font[color='red']"
-                )
-                if alert_element.is_displayed():
-                    alert_text = alert_element.text.strip()
-                    logging.info(f"Alert found: {alert_text}")
-                    return False, alert_text
-            except NoSuchElementException:
-                pass
+            # try:
+            #     alert_element = self.driver.find_element(
+            #         By.CSS_SELECTOR, 
+            #         "div[style*='color:red'], .alert-danger, font[color='red']"
+            #     )
+            #     if alert_element.is_displayed():
+            #         alert_text = alert_element.text.strip()
+            #         logging.info(f"Alert found: {alert_text}")
+            #         return False, alert_text
+            # except NoSuchElementException:
+            #     pass
             
             # Look for grade table - multiple possible IDs/classes
-            table_selectors = [
-                "table[id*='grade']",
-                "table[id*='result']",
-                "table.table",
-                "table[border='1']",
-                "//table[.//th[contains(text(), 'Grade')] or .//th[contains(text(), 'Marks')]]"
-            ]
-            
-            for selector in table_selectors:
-                try:
-                    if selector.startswith("//"):
-                        table = self.driver.find_element(By.XPATH, selector)
-                    else:
-                        table = self.driver.find_element(By.CSS_SELECTOR, selector)
-                    
-                    # Check if table has grade-related headers
-                    table_html = table.get_attribute('outerHTML').lower()
-                    if any(header in table_html for header in ['grade', 'marks', 'obtained', 'cgpa', 'sgpa']):
-                        logging.info("✓ GRADES FOUND! Table with grade data detected")
-                        grade_data = self.extract_grade_data(table)
-                        return True, grade_data
-                        
-                except NoSuchElementException:
-                    continue
-            
-            logging.info("No grade table found yet")
-            return False, "Grade table not found"
+            grade_table = self.driver.find_elements(By.ID, "table-1")
+            logging.info(f"Found {len(grade_table)} tables on the page.")
+
+            if grade_table:
+                # table_content = grade_table[0].get_attribute('innerHTML')
+                # logging.info(f"content of table: {table_content}")
+
+                rows = grade_table[0].find_elements(By.TAG_NAME, "tbody tr")
+                logging.info(f"Found {len(rows)} rows in the grade table.")
+
+                if len(rows) <= 0:
+                    logging.info("Table body is empty, no grades found")
+                    return False, "Grade table is empty"
+
+                logging.info("✓ GRADES FOUND! Table with grade data detected")
+                grade_data = self.extract_grade_data(grade_table[0])
+
+                logging.info("Data: {}".format(grade_data))
+                return True, grade_data
+            else:
+                logging.info("No table with ID 'table-1' found, checking other selectors...")   
+                return False, "Grade table not found"
             
         except Exception as e:
             logging.error(f"Error checking grade status: {e}")
@@ -368,11 +378,12 @@ class ThaparGradeMonitor:
     
     def monitor_grades(self):
         """Main monitoring loop"""
-        attempt = 1
+        attempt = 0
         
         while True:
             try:
-                logging.info(f"\n{'='*60}")
+                attempt += 1
+                logging.info(f"{'='*60}")
                 logging.info(f"Grade Check Attempt #{attempt}")
                 logging.info(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
                 logging.info(f"{'='*60}")
@@ -381,14 +392,12 @@ class ThaparGradeMonitor:
                 if not self.navigate_to_grades():
                     logging.error("Navigation failed, retrying in 5 minutes...")
                     time.sleep(300)
-                    attempt += 1
                     continue
                 
                 # Submit form
                 if not self.select_semester_and_subject():
                     logging.error("Form submission failed, retrying...")
                     time.sleep(60)
-                    attempt += 1
                     continue
                 
                 # Check grade status
@@ -412,14 +421,12 @@ class ThaparGradeMonitor:
                     logging.info(f"Status: {data}")
                     logging.info(f"Next check in {CHECK_INTERVAL // 60} minutes...")
                     time.sleep(CHECK_INTERVAL)
-                    attempt += 1
                     
             except Exception as e:
                 logging.error(f"Error in monitoring loop: {e}")
                 self.driver.save_screenshot(f"error_{attempt}.png")
                 logging.info("Waiting 5 minutes before retry...")
                 time.sleep(300)
-                attempt += 1
     
     def run(self):
         """Main entry point"""
@@ -438,8 +445,8 @@ class ThaparGradeMonitor:
             logging.error(f"Unexpected error: {e}")
         finally:
             if self.driver:
-                logging.info("Keeping browser open for 10 seconds...")
-                time.sleep(10)
+                #logging.info("Keeping browser open for 10 seconds...")
+                #time.sleep(10)
                 self.driver.quit()
                 logging.info("Browser closed")
 

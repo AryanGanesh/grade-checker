@@ -217,7 +217,8 @@ class ThaparGradeMonitor:
                 'no record found',
                 'grades not available',
                 'not declared',
-                'अभी परिणाम घोषित नहीं'
+                'अभी परिणाम घोषित नहीं',
+                'This data is for information only and can be authenticated by the Academic Section, TU. In case of discrepancy, please contact AR(Academic),TU.'
             ]):
                 logging.info("Grades not yet available - found 'not available' message")
                 return False, "Grades not yet released"

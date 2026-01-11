@@ -151,3 +151,57 @@ Symbols not available. Dumping unresolved backtrace:
 2026-01-11 16:48:14,480 - ERROR - Login failed - exiting
 2026-01-11 16:48:14,481 - INFO - Keeping browser open for 10 seconds...
 2026-01-11 16:48:26,972 - INFO - Browser closed
+2026-01-11 21:08:24,017 - INFO - ============================================================
+2026-01-11 21:08:24,018 - INFO - Thapar University Grade Monitor Starting
+2026-01-11 21:08:24,018 - INFO - ============================================================
+2026-01-11 21:08:24,018 - INFO - Username: 102309020
+2026-01-11 21:08:24,018 - INFO - Portal: https://webkiosk.thapar.edu/index.jsp
+2026-01-11 21:08:24,018 - INFO - Check interval: 45 minutes
+2026-01-11 21:08:24,018 - INFO - Notification email: akavuri_be23@thapar.edu
+2026-01-11 21:08:24,019 - INFO - ============================================================
+
+2026-01-11 21:08:24,019 - INFO - Setting up Chrome browser...
+2026-01-11 21:08:24,019 - INFO - ====== WebDriver manager ======
+2026-01-11 21:08:25,173 - INFO - Get LATEST chromedriver version for google-chrome
+2026-01-11 21:08:25,708 - INFO - Get LATEST chromedriver version for google-chrome
+2026-01-11 21:08:35,792 - ERROR - Unexpected error: Could not reach host. Are you offline?
+2026-01-11 21:09:24,914 - INFO - ============================================================
+2026-01-11 21:09:24,914 - INFO - Thapar University Grade Monitor Starting
+2026-01-11 21:09:24,915 - INFO - ============================================================
+2026-01-11 21:09:24,915 - INFO - Username: 102309020
+2026-01-11 21:09:24,915 - INFO - Portal: https://webkiosk.thapar.edu/index.jsp
+2026-01-11 21:09:24,915 - INFO - Check interval: 45 minutes
+2026-01-11 21:09:24,915 - INFO - Notification email: akavuri_be23@thapar.edu
+2026-01-11 21:09:24,916 - INFO - ============================================================
+
+2026-01-11 21:09:24,916 - INFO - Setting up Chrome browser...
+2026-01-11 21:09:24,916 - INFO - ====== WebDriver manager ======
+2026-01-11 21:09:25,934 - INFO - Get LATEST chromedriver version for google-chrome
+2026-01-11 21:09:26,420 - INFO - Get LATEST chromedriver version for google-chrome
+2026-01-11 21:09:26,832 - INFO - Driver [C:\Users\aryan\.wdm\drivers\chromedriver\win64\143.0.7499.192\chromedriver-win32/chromedriver.exe] found in cache
+2026-01-11 21:09:28,236 - INFO - Browser ready
+2026-01-11 21:09:28,236 - INFO - Navigating to https://webkiosk.thapar.edu/index.jsp
+2026-01-11 21:09:28,803 - INFO - About to click submit button...
+2026-01-11 21:09:31,703 - INFO - Login successful
+2026-01-11 21:09:31,704 - INFO - ============================================================
+2026-01-11 21:09:31,704 - INFO - Grade Check Attempt #1
+2026-01-11 21:09:31,704 - INFO - Time: 2026-01-11 21:09:31
+2026-01-11 21:09:31,704 - INFO - ============================================================
+2026-01-11 21:09:31,704 - INFO - Navigating to grade card section...
+2026-01-11 21:09:31,737 - INFO - switch to leftFrame successful
+2026-01-11 21:09:31,748 - INFO - Found 5 elements.
+2026-01-11 21:09:31,748 - INFO - got exam_menu {exam_menu}
+2026-01-11 21:09:36,843 - INFO - Successfully navigated to grade card page
+2026-01-11 21:09:36,844 - INFO - Selecting semester and subject...
+2026-01-11 21:09:36,905 - INFO - Selected semester: 2526ODDSEM
+2026-01-11 21:09:36,926 - INFO - Show button found, submitting form...
+2026-01-11 21:09:39,019 - INFO - Form submitted successfully
+2026-01-11 21:09:39,019 - INFO - Checking grade status...
+2026-01-11 21:09:41,033 - INFO - Found 1 tables on the page.
+2026-01-11 21:09:41,044 - INFO - Found 0 rows in the grade table.
+2026-01-11 21:09:41,044 - INFO - Table body is empty, no grades found
+2026-01-11 21:09:41,044 - INFO - Status: Grade table is empty
+2026-01-11 21:09:41,044 - INFO - Next check in 45 minutes...
+2026-01-11 21:09:55,913 - INFO - 
+Monitoring stopped by user
+2026-01-11 21:09:55,916 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/efc666d2f70b9c809b5cca5bace1ded6

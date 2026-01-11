@@ -116,12 +116,6 @@ graph TD
 
 ## 📦 Installation
 
-### Prerequisites
-
-![Python](https://img.shields.io/badge/Python-3.7+-required-blue)
-![Chrome](https://img.shields.io/badge/Chrome-Latest-required-blue)
-![Gmail](https://img.shields.io/badge/Gmail-Account-required-blue)
-
 ### Step 1: Clone Repository
 
 ```bash
@@ -182,7 +176,7 @@ EMAIL_TO=recipient@email.com
 
 | Variable | Description | Example | Required |
 |----------|-------------|---------|:--------:|
-| `INSTITUTE_USERNAME` | Your Thapar student ID | `102103456` | ✅ |
+| `INSTITUTE_USERNAME` | Your Thapar student ID | `102xxxxxx` | ✅ |
 | `INSTITUTE_PASSWORD` | WebKiosk password | `YourPass123` | ✅ |
 | `INSTITUTE_URL` | Portal URL | `https://webkiosk.thapar.edu` | ✅ |
 | `EMAIL_FROM` | Sender Gmail address | `you@gmail.com` | ✅ |
@@ -428,16 +422,6 @@ env/
 
 </div>
 
-## 🤝 Contributing
-
-Contributions are welcome! Here's how you can help:
-
-1. 🍴 Fork the repository
-2. 🔨 Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. 💬 Commit your changes (`git commit -m 'Add AmazingFeature'`)
-4. 📤 Push to the branch (`git push origin feature/AmazingFeature`)
-5. 🎉 Open a Pull Request
-
 ## 📝 Changelog
 
 ### Version 2.0 (Current)
@@ -502,7 +486,5 @@ Contributions are welcome! Here's how you can help:
 
 ⭐ Star this repo if it helped you! ⭐
 
-![GitHub stars](https://img.shields.io/github/stars/AryanGanesh/thapar-grade-monitor?style=social)
-![GitHub forks](https://img.shields.io/github/forks/AryanGanesh/thapar-grade-monitor?style=social)
 
 </div>

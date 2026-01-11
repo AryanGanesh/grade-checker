@@ -34,7 +34,6 @@
 
 ### 🚀 Core Functionality
 - ✅ **Automated Login** - Secure credential management
-- ✅ **Smart Navigation** - AI-powered portal traversal
 - ✅ **Continuous Monitoring** - 24/7 grade checking
 - ✅ **Fresh Sessions** - Clean browser restarts every cycle
 

@@ -377,6 +377,45 @@ class ThaparGradeMonitor:
             logging.error(f"Failed to send email: {e}")
             return False
     
+    def logout(self):
+        """Logout from the portal"""
+        try:
+            logging.info("Attempting to logout...")
+            
+            # Switch to leftFrame where logout button is located
+            self.driver.switch_to.default_content()
+            self.wait.until(
+                EC.frame_to_be_available_and_switch_to_it((By.XPATH, "//frame[@src='FrameLeftStudent.jsp']"))
+            )
+            
+            # Try to find logout link by title attribute (most reliable)
+            try:
+                logout_link = self.wait.until(
+                    EC.element_to_be_clickable((By.XPATH, "//a[@title='Logout/Signout']"))
+                )
+                logout_link.click()
+                logging.info("✓ Logout successful")
+                time.sleep(2)  # Wait for logout to complete
+                return True
+            except Exception as e:
+                logging.error(f"Could not find logout button: {e}")
+                return False
+                
+        except Exception as e:
+            logging.error(f"Logout failed: {e}")
+            return False
+    
+    def close_browser(self):
+        """Close the browser"""
+        try:
+            if self.driver:
+                self.driver.quit()
+                logging.info("Browser closed")
+                self.driver = None
+                self.wait = None
+        except Exception as e:
+            logging.error(f"Error closing browser: {e}")
+    
     def monitor_grades(self):
         """Main monitoring loop"""
         attempt = 0
@@ -420,14 +459,41 @@ class ThaparGradeMonitor:
                     break
                 else:
                     logging.info(f"Status: {data}")
+                    
+                    # Logout and close browser
+                    self.logout()
+                    self.close_browser()
+                    
                     logging.info(f"Next check in {CHECK_INTERVAL // 60} minutes...")
                     time.sleep(CHECK_INTERVAL)
                     
+                    # Restart browser and login
+                    logging.info("Restarting browser and logging in...")
+                    self.setup_driver()
+                    if not self.login():
+                        logging.error("Login failed after restart, waiting 5 minutes...")
+                        self.close_browser()
+                        time.sleep(300)
+                        continue
+                    
             except Exception as e:
                 logging.error(f"Error in monitoring loop: {e}")
-                self.driver.save_screenshot(f"error_{attempt}.png")
+                try:
+                    self.driver.save_screenshot(f"error_{attempt}.png")
+                except:
+                    pass
                 logging.info("Waiting 5 minutes before retry...")
+                self.close_browser()
                 time.sleep(300)
+                # Restart after error
+                try:
+                    self.setup_driver()
+                    if not self.login():
+                        logging.error("Login failed after error recovery")
+                        continue
+                except Exception as restart_error:
+                    logging.error(f"Failed to restart after error: {restart_error}")
+                    time.sleep(300)
     
     def run(self):
         """Main entry point"""

@@ -205,3 +205,44 @@ Symbols not available. Dumping unresolved backtrace:
 2026-01-11 21:09:55,913 - INFO - 
 Monitoring stopped by user
 2026-01-11 21:09:55,916 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/efc666d2f70b9c809b5cca5bace1ded6
+2026-01-11 21:54:19,885 - INFO - ============================================================
+2026-01-11 21:54:19,886 - INFO - Thapar University Grade Monitor Starting
+2026-01-11 21:54:19,886 - INFO - ============================================================
+2026-01-11 21:54:19,886 - INFO - Username: 102309020
+2026-01-11 21:54:19,886 - INFO - Portal: https://webkiosk.thapar.edu/index.jsp
+2026-01-11 21:54:19,887 - INFO - Check interval: 45 minutes
+2026-01-11 21:54:19,887 - INFO - Notification email: akavuri_be23@thapar.edu
+2026-01-11 21:54:19,887 - INFO - ============================================================
+
+2026-01-11 21:54:19,887 - INFO - Setting up Chrome browser...
+2026-01-11 21:54:19,887 - INFO - ====== WebDriver manager ======
+2026-01-11 21:54:20,964 - INFO - Get LATEST chromedriver version for google-chrome
+2026-01-11 21:54:21,441 - INFO - Get LATEST chromedriver version for google-chrome
+2026-01-11 21:54:21,914 - INFO - Driver [C:\Users\aryan\.wdm\drivers\chromedriver\win64\143.0.7499.192\chromedriver-win32/chromedriver.exe] found in cache
+2026-01-11 21:54:23,050 - INFO - Browser ready
+2026-01-11 21:54:23,050 - INFO - Navigating to https://webkiosk.thapar.edu/index.jsp
+2026-01-11 21:54:23,537 - INFO - About to click submit button...
+2026-01-11 21:54:26,424 - INFO - Login successful
+2026-01-11 21:54:26,425 - INFO - ============================================================
+2026-01-11 21:54:26,425 - INFO - Grade Check Attempt #1
+2026-01-11 21:54:26,425 - INFO - Time: 2026-01-11 21:54:26
+2026-01-11 21:54:26,425 - INFO - ============================================================
+2026-01-11 21:54:26,425 - INFO - Navigating to grade card section...
+2026-01-11 21:54:26,456 - INFO - switch to leftFrame successful
+2026-01-11 21:54:26,468 - INFO - Found 5 elements.
+2026-01-11 21:54:26,468 - INFO - got exam_menu {exam_menu}
+2026-01-11 21:54:31,317 - INFO - Successfully navigated to grade card page
+2026-01-11 21:54:31,317 - INFO - Selecting semester and subject...
+2026-01-11 21:54:31,392 - INFO - Selected semester: 2526ODDSEM
+2026-01-11 21:54:31,415 - INFO - Show button found, submitting form...
+2026-01-11 21:54:33,507 - INFO - Form submitted successfully
+2026-01-11 21:54:33,507 - INFO - Checking grade status...
+2026-01-11 21:54:35,521 - INFO - Found 1 tables on the page.
+2026-01-11 21:54:35,530 - INFO - Found 0 rows in the grade table.
+2026-01-11 21:54:35,531 - INFO - Table body is empty, no grades found
+2026-01-11 21:54:35,531 - INFO - Status: Grade table is empty
+2026-01-11 21:54:35,531 - INFO - Attempting to logout...
+2026-01-11 21:54:39,864 - INFO - Browser closed
+2026-01-11 21:54:39,866 - INFO - Next check in 45 minutes...
+2026-01-11 21:54:46,141 - INFO - 
+Monitoring stopped by user

@@ -1,0 +1,153 @@
+2026-01-11 16:38:46,437 - INFO - ============================================================
+2026-01-11 16:38:46,438 - INFO - Thapar University Grade Monitor Starting
+2026-01-11 16:38:46,439 - INFO - ============================================================
+2026-01-11 16:38:46,439 - INFO - Username: 102309020
+2026-01-11 16:38:46,440 - INFO - Portal: https://webkiosk.thapar.edu/index.jsp
+2026-01-11 16:38:46,440 - INFO - Check interval: 45 minutes
+2026-01-11 16:38:46,440 - INFO - Notification email: akavuri_be23@thapar.edu
+2026-01-11 16:38:46,442 - INFO - ============================================================
+
+2026-01-11 16:38:46,444 - INFO - Setting up Chrome browser...
+2026-01-11 16:38:46,445 - INFO - ====== WebDriver manager ======
+2026-01-11 16:38:48,764 - INFO - Get LATEST chromedriver version for google-chrome
+2026-01-11 16:38:49,712 - INFO - Get LATEST chromedriver version for google-chrome
+2026-01-11 16:38:50,568 - INFO - Driver [C:\Users\aryan\.wdm\drivers\chromedriver\win64\143.0.7499.192\chromedriver-win32/chromedriver.exe] found in cache
+2026-01-11 16:38:52,261 - INFO - Browser ready
+2026-01-11 16:38:52,262 - INFO - Navigating to https://webkiosk.thapar.edu/index.jsp
+2026-01-11 16:39:16,751 - ERROR - Login failed: Message: 
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0xef1213
+	0xef1254
+	0xcde6dd
+	0xd293a5
+	0xd2977b
+	0xd70382
+	0xd4b534
+	0xd6db13
+	0xd4b2e6
+	0xd1d321
+	0xd1e1d4
+	0x1145254
+	0x114080b
+	0x115d0ea
+	0xf0b118
+	0xf1311d
+	0xef9518
+	0xef96d9
+	0xee3a68
+	0x76975d49
+	0x778ad5db
+	0x778ad561
+
+2026-01-11 16:39:16,752 - ERROR - Login failed - exiting
+2026-01-11 16:39:16,752 - INFO - Keeping browser open for 10 seconds...
+2026-01-11 16:39:31,643 - INFO - ============================================================
+2026-01-11 16:39:31,645 - INFO - Thapar University Grade Monitor Starting
+2026-01-11 16:39:31,645 - INFO - ============================================================
+2026-01-11 16:39:31,645 - INFO - Username: 102309020
+2026-01-11 16:39:31,646 - INFO - Portal: https://webkiosk.thapar.edu/index.jsp
+2026-01-11 16:39:31,646 - INFO - Check interval: 45 minutes
+2026-01-11 16:39:31,646 - INFO - Notification email: akavuri_be23@thapar.edu
+2026-01-11 16:39:31,647 - INFO - ============================================================
+
+2026-01-11 16:39:31,647 - INFO - Setting up Chrome browser...
+2026-01-11 16:39:31,648 - INFO - ====== WebDriver manager ======
+2026-01-11 16:39:34,036 - INFO - Get LATEST chromedriver version for google-chrome
+2026-01-11 16:39:35,245 - INFO - Get LATEST chromedriver version for google-chrome
+2026-01-11 16:39:36,210 - INFO - Driver [C:\Users\aryan\.wdm\drivers\chromedriver\win64\143.0.7499.192\chromedriver-win32/chromedriver.exe] found in cache
+2026-01-11 16:39:37,883 - INFO - Browser ready
+2026-01-11 16:39:37,883 - INFO - Navigating to https://webkiosk.thapar.edu/index.jsp
+2026-01-11 16:39:59,765 - ERROR - Login failed: Message: 
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0xef1213
+	0xef1254
+	0xcde6dd
+	0xd293a5
+	0xd2977b
+	0xd70382
+	0xd4b534
+	0xd6db13
+	0xd4b2e6
+	0xd1d321
+	0xd1e1d4
+	0x1145254
+	0x114080b
+	0x115d0ea
+	0xf0b118
+	0xf1311d
+	0xef9518
+	0xef96d9
+	0xee3a68
+	0x76975d49
+	0x778ad5db
+	0x778ad561
+
+2026-01-11 16:39:59,766 - ERROR - Login failed - exiting
+2026-01-11 16:39:59,766 - INFO - Keeping browser open for 10 seconds...
+2026-01-11 16:40:12,229 - INFO - Browser closed
+2026-01-11 16:40:51,440 - INFO - ============================================================
+2026-01-11 16:40:51,442 - INFO - Thapar University Grade Monitor Starting
+2026-01-11 16:40:51,443 - INFO - ============================================================
+2026-01-11 16:40:51,443 - INFO - Username: 102309020
+2026-01-11 16:40:51,443 - INFO - Portal: https://webkiosk.thapar.edu/index.jsp
+2026-01-11 16:40:51,444 - INFO - Check interval: 45 minutes
+2026-01-11 16:40:51,444 - INFO - Notification email: akavuri_be23@thapar.edu
+2026-01-11 16:40:51,444 - INFO - ============================================================
+
+2026-01-11 16:40:51,445 - INFO - Setting up Chrome browser...
+2026-01-11 16:40:51,445 - INFO - ====== WebDriver manager ======
+2026-01-11 16:40:53,886 - INFO - Get LATEST chromedriver version for google-chrome
+2026-01-11 16:40:54,799 - INFO - Get LATEST chromedriver version for google-chrome
+2026-01-11 16:40:55,675 - INFO - Driver [C:\Users\aryan\.wdm\drivers\chromedriver\win64\143.0.7499.192\chromedriver-win32/chromedriver.exe] found in cache
+2026-01-11 16:40:57,346 - INFO - Browser ready
+2026-01-11 16:40:57,346 - INFO - Navigating to https://webkiosk.thapar.edu/index.jsp
+2026-01-11 16:41:18,729 - ERROR - Login failed: Message: 
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0xef1213
+	0xef1254
+	0xcde6dd
+	0xd293a5
+	0xd2977b
+	0xd70382
+	0xd4b534
+	0xd6db13
+	0xd4b2e6
+	0xd1d321
+	0xd1e1d4
+	0x1145254
+	0x114080b
+	0x115d0ea
+	0xf0b118
+	0xf1311d
+	0xef9518
+	0xef96d9
+	0xee3a68
+	0x76975d49
+	0x778ad5db
+	0x778ad561
+
+2026-01-11 16:41:18,730 - ERROR - Login failed - exiting
+2026-01-11 16:41:18,730 - INFO - Keeping browser open for 10 seconds...
+2026-01-11 16:41:31,218 - INFO - Browser closed
+2026-01-11 16:48:07,193 - INFO - ============================================================
+2026-01-11 16:48:07,194 - INFO - Thapar University Grade Monitor Starting
+2026-01-11 16:48:07,194 - INFO - ============================================================
+2026-01-11 16:48:07,195 - INFO - Username: 102309020
+2026-01-11 16:48:07,195 - INFO - Portal: https://webkiosk.thapar.edu/index.jsp
+2026-01-11 16:48:07,196 - INFO - Check interval: 45 minutes
+2026-01-11 16:48:07,196 - INFO - Notification email: akavuri_be23@thapar.edu
+2026-01-11 16:48:07,196 - INFO - ============================================================
+
+2026-01-11 16:48:07,197 - INFO - Setting up Chrome browser...
+2026-01-11 16:48:07,197 - INFO - ====== WebDriver manager ======
+2026-01-11 16:48:09,525 - INFO - Get LATEST chromedriver version for google-chrome
+2026-01-11 16:48:10,390 - INFO - Get LATEST chromedriver version for google-chrome
+2026-01-11 16:48:11,239 - INFO - Driver [C:\Users\aryan\.wdm\drivers\chromedriver\win64\143.0.7499.192\chromedriver-win32/chromedriver.exe] found in cache
+2026-01-11 16:48:12,909 - INFO - Browser ready
+2026-01-11 16:48:12,910 - INFO - Navigating to https://webkiosk.thapar.edu/index.jsp
+2026-01-11 16:48:14,480 - ERROR - Login failed - exiting
+2026-01-11 16:48:14,481 - INFO - Keeping browser open for 10 seconds...
+2026-01-11 16:48:26,972 - INFO - Browser closed

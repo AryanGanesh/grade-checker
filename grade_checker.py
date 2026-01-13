@@ -241,11 +241,15 @@ class ThaparGradeMonitor:
             logging.info(f"Found {len(grade_table)} tables on the page.")
 
             if grade_table:
-                # table_content = grade_table[0].get_attribute('innerHTML')
-                # logging.info(f"content of table: {table_content}")
-
-                rows = grade_table[0].find_elements(By.TAG_NAME, "tbody tr")
-                logging.info(f"Found {len(rows)} rows in the grade table.")
+                # Find tbody first, then find tr elements inside it
+                try:
+                    tbody = grade_table[0].find_element(By.TAG_NAME, "tbody")
+                    rows = tbody.find_elements(By.TAG_NAME, "tr")
+                    logging.info(f"Found {len(rows)} rows in the grade table tbody.")
+                except NoSuchElementException:
+                    logging.info("No tbody found in table, checking for direct tr elements...")
+                    rows = grade_table[0].find_elements(By.TAG_NAME, "tr")
+                    logging.info(f"Found {len(rows)} direct tr rows in the grade table.")
 
                 if len(rows) <= 0:
                     logging.info("Table body is empty, no grades found")

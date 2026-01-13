@@ -1307,3 +1307,43 @@ Monitoring stopped by user
 2026-01-13 11:39:04,238 - INFO - Notification sent successfully
 2026-01-13 11:39:04,344 - INFO - Monitoring complete - grades found!
 2026-01-13 11:39:06,500 - INFO - Browser closed
+2026-01-13 11:55:22,097 - INFO - ============================================================
+2026-01-13 11:55:22,097 - INFO - Thapar University Grade Monitor Starting
+2026-01-13 11:55:22,097 - INFO - ============================================================
+2026-01-13 11:55:22,097 - INFO - Username: 102309020
+2026-01-13 11:55:22,097 - INFO - Portal: https://webkiosk.thapar.edu/index.jsp
+2026-01-13 11:55:22,097 - INFO - Check interval: 45 minutes
+2026-01-13 11:55:22,098 - INFO - Notification email: akavuri_be23@thapar.edu
+2026-01-13 11:55:22,098 - INFO - ============================================================
+
+2026-01-13 11:55:22,098 - INFO - Setting up Chrome browser...
+2026-01-13 11:55:22,098 - INFO - ====== WebDriver manager ======
+2026-01-13 11:55:23,228 - INFO - Get LATEST chromedriver version for google-chrome
+2026-01-13 11:55:23,800 - INFO - Get LATEST chromedriver version for google-chrome
+2026-01-13 11:55:24,276 - INFO - Driver [C:\Users\aryan\.wdm\drivers\chromedriver\win64\143.0.7499.192\chromedriver-win32/chromedriver.exe] found in cache
+2026-01-13 11:55:25,477 - INFO - Browser ready
+2026-01-13 11:55:25,477 - INFO - Navigating to https://webkiosk.thapar.edu/index.jsp
+2026-01-13 11:55:26,093 - INFO - About to click submit button...
+2026-01-13 11:55:29,020 - INFO - Login successful
+2026-01-13 11:55:29,020 - INFO - ============================================================
+2026-01-13 11:55:29,021 - INFO - Grade Check Attempt #1
+2026-01-13 11:55:29,021 - INFO - Time: 2026-01-13 11:55:29
+2026-01-13 11:55:29,021 - INFO - ============================================================
+2026-01-13 11:55:29,021 - INFO - Navigating to grade card section...
+2026-01-13 11:55:29,058 - INFO - switch to leftFrame successful
+2026-01-13 11:55:29,069 - INFO - Found 5 elements.
+2026-01-13 11:55:29,070 - INFO - got exam_menu {exam_menu}
+2026-01-13 11:55:33,846 - INFO - Successfully navigated to grade card page
+2026-01-13 11:55:33,846 - INFO - Selecting semester and subject...
+2026-01-13 11:55:33,912 - INFO - Selected semester: 2526ODDSEM
+2026-01-13 11:55:33,943 - INFO - Show button found, submitting form...
+2026-01-13 11:55:38,789 - INFO - Form submitted successfully
+2026-01-13 11:55:38,789 - INFO - Checking grade status...
+2026-01-13 11:55:40,803 - INFO - Found 1 tables on the page.
+2026-01-13 11:55:40,827 - INFO - Found 4 rows in the grade table tbody.
+2026-01-13 11:55:41,069 - INFO - Extracted 4 grade entries
+2026-01-13 11:55:41,069 - INFO - Data: {'timestamp': '2026-01-13 11:55:40', 'subjects': [['AUTOMATIC CONTROL SYSTEMS(UMT503)', '2526ODDSEM', '73.29', '100', 'A'], ['AUTOMOBILE ENGINEERING (UME511)', '2526ODDSEM', '71.5', '100', 'A-'], ['ROBOTICS ENGINEERING(UMT504)', '2526ODDSEM', '76.65', '100', 'A'], ['STRESS ANALYSIS AND MECHANICAL DESIGN(UMT403)', '2526ODDSEM', '71', '100', 'A']], 'headers': ['Subject', 'Exam Code', 'Marks Obtained', 'Max. Marks', 'Grade Awarded']}
+2026-01-13 11:55:41,072 - INFO - Sending email notification...
+2026-01-13 11:55:45,990 - INFO - Notification sent successfully
+2026-01-13 11:55:46,101 - INFO - Monitoring complete - grades found!
+2026-01-13 11:55:48,293 - INFO - Browser closed
